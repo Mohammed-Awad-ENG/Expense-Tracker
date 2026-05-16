@@ -7,7 +7,7 @@ import ProfilePhotoSelector from "../../components/inputs/ProfilePhotoSelector";
 import { API_PATHS } from "../../utils/apiPaths";
 import axiosInstance from "../../utils/axiosinstance";
 import { UserContext } from "../../context/UserContextCreation";
-import uploadImage from "../../utils/uploadImage";
+// import uploadImage from "../../utils/uploadImage";
 function SignUp() {
     const [ProfilePic, setProfilePic] = useState(null);
     const [FullName, setFullName] = useState("");
@@ -41,10 +41,10 @@ function SignUp() {
         }
         setError("");
         try {
-            if (ProfilePic) {
-                const imageUploadRes = await uploadImage(ProfilePic);
-                profileImageUrl = imageUploadRes.imageUrl || "";
-            }
+            // if (ProfilePic) {
+            //     const imageUploadRes = await uploadImage(ProfilePic);
+            //     profileImageUrl = imageUploadRes.imageUrl || "";
+            // }
             const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER, {
                 fullName: FullName,
                 email: Email,
