@@ -29,10 +29,13 @@ axiosInstance.interceptors.response.use(
     },
     (error) => {
         if (error.response && error.response.status === 401) {
-            window.location.href = "/login";
-        } else if (error.response.status === 500) {
+            localStorage.removeItem("token");
+            if (window.location.pathname !== "/login") {
+                window.location.href = "/login";
+            }
+        } else if (error.response?.status === 500) {
             console.error("Server error, try later.");
-        } else if (error.response.code === "ECONNABORTED") {
+        } else if (error.code === "ECONNABORTED") {
             console.error("Request timed out, please try again.");
         }
         return Promise.reject(error);
