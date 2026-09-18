@@ -1,15 +1,17 @@
 import moment from "moment";
 import { LuArrowRight } from "react-icons/lu";
 import TransactionInfoCard from "../../components/cards/TransactionsInfoCard";
+import { useTranslation } from "react-i18next";
 
 const ExpensesTransactions = ({ transactions, onSeeMore }) => {
+    const { t } = useTranslation();
     return (
         <div className="card">
             <div className="flex items-center justify-between">
-                <h5 className="text-lg">Expanses</h5>
+                <h5 className="text-lg">{t('expanses')}</h5>
 
                 <button className="card-btn" onClick={onSeeMore}>
-                    See All <LuArrowRight className="text-base" />
+                    {t('seeAll')} <LuArrowRight className="text-base" />
                 </button>
             </div>
 

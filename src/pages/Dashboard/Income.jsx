@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 import IncomeList from "../../components/Income/IncomeList";
 import DeleteAlert from "../../components/DeleteAlert";
 import useUserAuth from "../../hooks/useUserAuth";
+import { useTranslation } from "react-i18next";
 const Income = () => {
     useUserAuth();
     const [openAddIncomeModal, setOpenAddIncomeModal] = useState(false);
@@ -18,6 +19,7 @@ const Income = () => {
         show: false,
         data: null,
     });
+    const { t } = useTranslation();
 
     const fetchIncomeDetails = async () => {
         if (Loading) return;
@@ -42,12 +44,12 @@ const Income = () => {
     const handleAddIncome = async (income) => {
         const { sources, amount, date, icon } = income;
         if (!sources.trim()) {
-            toast.error("Amount should be a valid number greater than 0.");
+            toast.error(t('errorValidAmount'));
             return;
         }
 
         if (!date) {
-            toast.error("Date is required.");
+            toast.error(t('errorDateRequired'));
             return;
         }
         try {
@@ -58,7 +60,7 @@ const Income = () => {
                 icon,
             });
             setOpenAddIncomeModal(false);
-            toast.success("Income Added successfully");
+            toast.success(t('incomeAddedSuccess'));
             fetchIncomeDetails();
         } catch (err) {
             console.error("Error adding Income: ", err);
@@ -68,7 +70,7 @@ const Income = () => {
         try {
             await axiosInstance.delete(API_PATHS.INCOME.DELETE_INCOME(id));
             setOpenDeleteAlert({ show: false, data: null });
-            toast.success("Income details deleted successfully");
+            toast.success(t('incomeDeletedSuccess'));
             fetchIncomeDetails();
         } catch (error) {
             console.error(
@@ -102,7 +104,7 @@ const Income = () => {
             window.URL.revokeObjectURL(url);
         } catch (err) {
             console.error("Error downloading Income details: ", err);
-            toast.error("Filed to download Income details, Please try again.");
+            toast.error(t('errorDownloadIncome'));
         }
     };
 
@@ -153,7 +155,7 @@ const Income = () => {
                 <Model
                     isOpen={openAddIncomeModal}
                     onClose={() => setOpenAddIncomeModal(false)}
-                    title="Add Income"
+                    title={t('addIncome')}
                 >
                     <AddIncomeForm onAddIncome={handleAddIncome} />
                 </Model>
@@ -163,10 +165,10 @@ const Income = () => {
                     onClose={() =>
                         setOpenDeleteAlert({ show: false, data: null })
                     }
-                    title="Delete Income"
+                    title={t('deleteIncome')}
                 >
                     <DeleteAlert
-                        content="Are you sure you want to delete this income?"
+                        content={t('confirmDeleteIncome')}
                         onDelete={() => deleteIncome(OpenDeleteAlert.data)}
                     />
                 </Model>

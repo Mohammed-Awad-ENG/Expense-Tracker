@@ -9,6 +9,7 @@ import Model from "../../components/Model";
 import AddExpenseForm from "../../components/Expense/AddExpenseForm";
 import ExpensesList from "../../components/Expense/ExpensesList.jsx";
 import DeleteAlert from "../../components/DeleteAlert.jsx";
+import { useTranslation } from "react-i18next";
 function Expense() {
     useUserAuth();
     const [openAddExpenseModal, setOpenAddExpenseModal] = useState(false);
@@ -18,6 +19,7 @@ function Expense() {
         show: false,
         data: null,
     });
+    const { t } = useTranslation();
 
     const fetchExpenseDetails = async () => {
         if (Loading) return;
@@ -42,12 +44,12 @@ function Expense() {
     const handleAddExpense = async (expense) => {
         const { category, amount, date, icon } = expense;
         if (!category.trim()) {
-            toast.error("Category is required.");
+            toast.error(t('errorCategoryRequired'));
             return;
         }
 
         if (!date) {
-            toast.error("Date is required.");
+            toast.error(t('errorDateRequired'));
             return;
         }
         try {
@@ -58,7 +60,7 @@ function Expense() {
                 icon,
             });
             setOpenAddExpenseModal(false);
-            toast.success("Income Added successfully");
+            toast.success(t('expenseAddedSuccess'));
             fetchExpenseDetails();
         } catch (err) {
             console.error("Error adding Income: ", err);
@@ -68,7 +70,7 @@ function Expense() {
         try {
             await axiosInstance.delete(API_PATHS.EXPENSE.DELETE_EXPENSE(id));
             setOpenDeleteAlert({ show: false, data: null });
-            toast.success("Expense details deleted successfully");
+            toast.success(t('expenseDeletedSuccess'));
             fetchExpenseDetails();
         } catch (error) {
             console.error(
@@ -103,7 +105,7 @@ function Expense() {
         } catch (err) {
             console.error("Error downloading Expenses details: ", err);
             toast.error(
-                "Filed to download Expenses details, Please try again.",
+                t('errorDownloadExpense')
             );
         }
     };
@@ -155,7 +157,7 @@ function Expense() {
                 <Model
                     isOpen={openAddExpenseModal}
                     onClose={() => setOpenAddExpenseModal(false)}
-                    title="Add Expense"
+                    title={t('addExpense')}
                 >
                     <AddExpenseForm onAddExpense={handleAddExpense} />
                 </Model>
@@ -164,10 +166,10 @@ function Expense() {
                     onClose={() =>
                         setOpenDeleteAlert({ show: false, data: null })
                     }
-                    title="Delete Expense"
+                    title={t('deleteExpense')}
                 >
                     <DeleteAlert
-                        content="Are you sure you want to delete this Expense?"
+                        content={t('confirmDeleteExpense')}
                         onDelete={() => deleteExpense(OpenDeleteAlert.data)}
                     />
                 </Model>

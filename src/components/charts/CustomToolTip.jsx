@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 function CustomToolTip({ active, payload }) {
+    const { t } = useTranslation();
     if (active && payload && payload.length)
         return (
             <div className="bg-white shadow-md rounded-lg p-2 border border-gray-300">
@@ -6,7 +9,7 @@ function CustomToolTip({ active, payload }) {
                     {payload[0].name}
                 </p>
                 <p className="text-sm text-gray-600">
-                    Amount:{" "}
+                    {t('amount')}:{" "}
                     <span className="text-sm font-medium text-gray-900">
                         ${payload[0].value}
                     </span>

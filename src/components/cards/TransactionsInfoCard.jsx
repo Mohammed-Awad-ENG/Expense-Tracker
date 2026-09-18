@@ -4,6 +4,7 @@ import {
     LuTrendingDown,
     LuTrendingUp,
 } from "react-icons/lu";
+import { useTranslation } from "react-i18next";
 
 function TransactionsInfoCard({
     title,
@@ -14,6 +15,7 @@ function TransactionsInfoCard({
     hideDeleteBtn,
     onDelete
 }) {
+    const { t } = useTranslation();
     function getAmountStyle() {
         return type === "income"
             ? "bg-green-50 text-green-500"

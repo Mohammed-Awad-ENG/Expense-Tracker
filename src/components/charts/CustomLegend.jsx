@@ -1,4 +1,7 @@
+import { useTranslation } from "react-i18next";
+
 function CustomLegend({ payload }) {
+    const { t } = useTranslation();
     return (
         <div className="flex flex-wrap justify-center gap-2 mt-4 space-x-6">
             {payload.map((entry, i) => (

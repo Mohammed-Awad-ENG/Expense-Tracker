@@ -1,8 +1,10 @@
 import EmojiPicker from "emoji-picker-react";
 import { useState } from "react";
 import { LuImage, LuX } from "react-icons/lu";
+import { useTranslation } from "react-i18next";
 
 function EmojiPickerProp({ icon, onSelect }) {
+    const { t } = useTranslation();
     const [isOpen, setIsOpen] = useState(false);
     return (
         <div className="flex flex-col md:flex-row items-center gap-5 mb-6">
@@ -17,12 +19,12 @@ function EmojiPickerProp({ icon, onSelect }) {
                         <LuImage />
                     )}
                 </div>
-                <p className="">{icon ? "Change Icon" : "Pick Icon"}</p>
+                <p className="">{icon ? t('changeIcon') : t('pickIcon')}</p>
             </div>
             {isOpen && (
                 <div className="relative">
                     <button
-                        className="w-7 h-7 flex items-center justify-center bg-white border border-gray-200 rounded-full absolute -top-2 -right-2 z-10 cursor-pointer"
+                        className="w-7 h-7 flex items-center justify-center bg-white border border-gray-200 rounded-full absolute -top-2 -end-2 z-10 cursor-pointer"
                         onClick={() => setIsOpen(false)}
                     >
                         <LuX />

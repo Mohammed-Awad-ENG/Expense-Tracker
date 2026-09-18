@@ -1,7 +1,9 @@
 import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { LuTrash, LuUpload, LuUser } from "react-icons/lu";
 
 function ProfilePhotoSelector({ image, setImage }) {
+    const { t } = useTranslation();
     const inputRef = useRef(null);
     const [PreviewUrl, setPreviewUrl] = useState(null);
 
@@ -37,13 +39,13 @@ function ProfilePhotoSelector({ image, setImage }) {
                     <div>
                         <img
                             src={PreviewUrl}
-                            alt="profile"
+                            alt={t('profile')}
                             className="w-20 h-20 rounded-full object-cover "
                         />
                         <button
                             type="button"
                             onClick={handleRemoveImage}
-                            className="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full absolute -bottom-1 -right-1 border"
+                            className="w-8 h-8 flex items-center justify-center bg-red-500 text-white rounded-full absolute -bottom-1 -end-1 border"
                         >
                             <LuTrash size={16} />
                         </button>
@@ -54,7 +56,7 @@ function ProfilePhotoSelector({ image, setImage }) {
                         <button
                             type="button"
                             onClick={onChooseFile}
-                            className="w-8 h-8 flex items-center justify-center border bg-blue-600 text-white rounded-full absolute -bottom-1 -right-1"
+                            className="w-8 h-8 flex items-center justify-center border bg-blue-600 text-white rounded-full absolute -bottom-1 -end-1"
                         >
                             <LuUpload size={16} />
                         </button>

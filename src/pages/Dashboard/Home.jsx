@@ -14,6 +14,7 @@ import ExpensesTransactions from "../Dashboard/ExpensesTransactions";
 import Last120DaysExpenses from "../Dashboard/Last120DaysExpenses";
 import ResentIncomeWithCart from "../Dashboard/ResentIncomeWithCart";
 import ResentIncome from "../Dashboard/ResentIncome";
+import { useTranslation } from "react-i18next";
 function Home() {
     useUserAuth();
 
@@ -21,6 +22,7 @@ function Home() {
     const [DashboardData, setDashboardData] = useState(null);
     // eslint-disable-next-line no-unused-vars
     const [Loading, setLoading] = useState(false);
+    const { t } = useTranslation();
 
 
 
@@ -56,7 +58,7 @@ function Home() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <InfoCard
                         icon={<IoMdCard />}
-                        title="Total Balance"
+                        title={t('totalBalance')}
                         value={addThousandSeparator(
                             DashboardData?.totalBalance || 0,
                         )}
@@ -64,7 +66,7 @@ function Home() {
                     />
                     <InfoCard
                         icon={<LuWalletMinimal />}
-                        title="Total Income"
+                        title={t('totalIncome')}
                         value={addThousandSeparator(
                             DashboardData?.totalIncome || 0,
                         )}
@@ -72,7 +74,7 @@ function Home() {
                     />
                     <InfoCard
                         icon={<LuHandCoins />}
-                        title="Total Expenses"
+                        title={t('totalExpenses')}
                         value={addThousandSeparator(
                             DashboardData?.totalExpense || 0,
                         )}

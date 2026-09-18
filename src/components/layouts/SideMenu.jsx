@@ -1,9 +1,11 @@
 import { SideMenuData } from "../../utils/Data";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { UserContext } from "../../context/UserContextCreation";
 import CharAvatar from "../cards/CharAvatar";
 function SideMenu({ activeMenu }) {
+    const { t } = useTranslation();
     const { user, setUser } = useContext(UserContext);
     const navigate = useNavigate();
 
@@ -37,7 +39,7 @@ function SideMenu({ activeMenu }) {
 
                 {<CharAvatar fullName={user?.fullName} />}
                 <h5 className="text-gray-950 font-bold capitalize leading-6">
-                    {user?.fullName || "User"}
+                    {user?.fullName || t('user')}
                 </h5>
             </div>
             {SideMenuData.map((item) => (

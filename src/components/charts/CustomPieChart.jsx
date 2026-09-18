@@ -8,7 +8,10 @@ import {
 } from "recharts";
 import CustomToolTip from "./CustomToolTip";
 import CustomLegend from "./CustomLegend";
+import { useTranslation } from "react-i18next";
+
 function CustomPieChart({ data, title, totalAmount, colors, showTextAnchor }) {
+    const { t } = useTranslation();
     return (
         <ResponsiveContainer width="100%" height={300}>
             <PieChart>

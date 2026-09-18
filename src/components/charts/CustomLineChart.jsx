@@ -7,8 +7,10 @@ import {
     XAxis,
     YAxis,
 } from "recharts";
+import { useTranslation } from "react-i18next";
 
 function CustomLineChart({ data }) {
+    const { t } = useTranslation();
     function CustomToolTip({ active, payload }) {
         if (active && payload && payload.length)
             return (
@@ -18,7 +20,7 @@ function CustomLineChart({ data }) {
                             payload[0].payload.sources}
                     </p>
                     <p className="text-sm text-gray-600">
-                        Amount:{" "}
+                        {t('amount')}:{" "}
                         <span className="text-sm font-medium text-gray-900">
                             ${payload[0].value}
                         </span>

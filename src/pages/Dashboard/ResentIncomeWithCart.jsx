@@ -1,8 +1,10 @@
 import { useMemo } from "react";
 import CustomPieChart from "../../components/charts/CustomPieChart";
+import { useTranslation } from "react-i18next";
 const Colors = ["#875CF5", "#FA2C37", "#FF6900"];
 
 function ResentIncomeWithCart({ data, totalIncome }) {
+    const { t } = useTranslation();
     
 
 
@@ -16,12 +18,12 @@ function ResentIncomeWithCart({ data, totalIncome }) {
     return (
         <div className="card">
             <div className="flex items-center justify-between">
-                <h5 className="text-lg">Last 120 Days Income</h5>
+                <h5 className="text-lg">{t('last120DaysIncome')}</h5>
             </div>
 
             <CustomPieChart
                 data={chartData}
-                title="Total Income"
+                title={t('totalIncome')}
                 totalAmount={`$${totalIncome}`}
                 showTextAnchor
                 colors={Colors}

@@ -1,15 +1,17 @@
 import { LuDownload } from "react-icons/lu";
 import TransactionInfoCard from "../cards/TransactionsInfoCard";
 import moment from "moment";
+import { useTranslation } from "react-i18next";
 
 const ExpensesList = ({ transactions, onDelete, onDownload }) => {
+    const { t } = useTranslation();
     return (
         <div className="card">
             <div className="flex items-center justify-between">
-                <h5 className="text-lg">Expenses Sources</h5>
+                <h5 className="text-lg">{t('expensesSourcesTitle')}</h5>
 
                 <button className="card-btn" onClick={onDownload}>
-                    <LuDownload className="text-base" /> Download
+                    <LuDownload className="text-base" /> {t('downloadBtn')}
                 </button>
             </div>
 

@@ -9,12 +9,14 @@ import {
     ResponsiveContainer,
     Cell,
 } from "recharts";
+import { useTranslation } from "react-i18next";
 
 function getBarColor(index) {
     return index % 2 === 0 ? "#875cf5" : "#cfbefb";
 }
 
 function CustomToolTip({ active, payload }) {
+    const { t } = useTranslation();
     if (active && payload && payload.length)
         return (
             <div className="bg-white shadow-md rounded-lg p-2 border border-gray-300">
@@ -22,7 +24,7 @@ function CustomToolTip({ active, payload }) {
                     {payload[0].payload.category || payload[0].payload.sources}
                 </p>
                 <p className="text-sm text-gray-600">
-                    Amount:{" "}
+                    {t('amount')}:{" "}
                     <span className="text-sm font-medium text-gray-900">
                         ${payload[0].value}
                     </span>
@@ -34,6 +36,7 @@ function CustomToolTip({ active, payload }) {
 }
 
 function CustomBarChart({ data }) {
+    const { t } = useTranslation();
     return (
         <div className="bg-white mt-6">
             <ResponsiveContainer width="100%" height={300}>

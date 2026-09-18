@@ -6,6 +6,7 @@ import { validateEmail } from "../../utils/Helper";
 import { API_PATHS } from "../../utils/apiPaths";
 import axiosInstance from "../../utils/axiosinstance";
 import { UserContext } from "../../context/UserContextCreation";
+import { useTranslation } from "react-i18next";
 
 function Login() {
     const [Email, setEmail] = useState("");
@@ -14,16 +15,17 @@ function Login() {
     const [loading, setLoading] = useState(false);
     const { setUser } = useContext(UserContext);
     const navigate = useNavigate();
+    const { t } = useTranslation();
 
     async function handelLogin(e) {
         e.preventDefault();
 
         if (!validateEmail(Email)) {
-            setError("Please enter a valid email address.");
+            setError(t('errorValidEmailLogin'));
             return;
         }
         if (!Password) {
-            setError("Please enter a password.");
+            setError(t('errorPasswordLogin'));
             return;
         }
 
@@ -47,7 +49,7 @@ function Login() {
             if (error.response && error.response.data.message) {
                 setError(error.response.data.message);
             } else {
-                setError("Something went wrong. Please try again.");
+                setError(t('errorSomethingWentWrong'));
             }
         } finally {
             setLoading(false);
@@ -57,33 +59,33 @@ function Login() {
     return (
         <AuthLayout>
             <div className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center">
-                <h3 className="text-xl font-semibold text-black">Welcome Back</h3>
+                <h3 className="text-xl font-semibold text-black">{t('welcomeBack')}</h3>
                 <p className="text-xs text-slate-700 mt-1.25 mb-6">
-                    Please enter your details to log in
+                    {t('pleaseEnterYourDetailsToLogIn')}
                 </p>
                 <form onSubmit={handelLogin}>
                     <Input
                         value={Email}
                         onChange={({ target }) => setEmail(target.value)}
-                        label="Email Address"
-                        placeholder="user@example.org"
+                        label={t('emailAddress')}
+                        placeholder={t('userEmailExample')}
                         type="text"
                     />
                     <Input
                         value={Password}
                         onChange={({ target }) => setPassword(target.value)}
-                        label="Password"
-                        placeholder="Min 8 Characters"
+                        label={t('password')}
+                        placeholder={t('min8Characters')}
                         type="password"
                     />
                     {Error && <p className="text-red-500 text-xs pb-2.5">{Error}</p>}
                     <button type="submit" className="btn-primary" disabled={loading}>
-                        {loading ? "Logging in..." : "LOGIN"}
+                        {loading ? t('loggingIn') : t('loginUpper')}
                     </button>
                     <p className="text-[13px] text-slate-800 mt-3">
-                        Don't have account?{" "}
+                        {t('dontHaveAccount')}{" "}
                         <Link to="/signUp" className="cursor-pointer font-medium text-primary underline">
-                            SignUp
+                            {t('signUpLink')}
                         </Link>
                     </p>
                 </form>

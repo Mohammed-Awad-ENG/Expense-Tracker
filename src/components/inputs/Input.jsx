@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 
 function Input({ value, onChange, label, placeholder, type }) {
+    const { t } = useTranslation();
     const [ShowPassword, setShowPassword] = useState(false);
 
     return (

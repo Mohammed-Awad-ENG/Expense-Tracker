@@ -1,5 +1,8 @@
+import { useTranslation } from "react-i18next";
+
 function CharAvatar({ fullName }) {
-    const words = fullName ? fullName.split(" ") : ["U"];
+    const { t } = useTranslation();
+    const words = fullName ? fullName.split(" ") : [t('u')];
     let initials = ""
 
     for (let i = 0; i < Math.min(words.length, 2); i++) {

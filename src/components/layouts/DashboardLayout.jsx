@@ -1,9 +1,11 @@
 import Navbar from "./Navbar";
 import SideMenu from "./SideMenu";
 import { useContext } from "react";
+import { useTranslation } from "react-i18next";
 import { UserContext } from "../../context/UserContextCreation";
 
 function DashboardLayout({ activeMenu, children }) {
+    const { t } = useTranslation();
     const { user } = useContext(UserContext);
 
     return (

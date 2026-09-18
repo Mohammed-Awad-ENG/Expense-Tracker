@@ -2,8 +2,10 @@ import { useMemo } from "react";
 import { prepareIncomeBarChartData } from "../../utils/Helper";
 import CustomBarChart from "../charts/CustomBarChart";
 import { LuPlus } from "react-icons/lu";
+import { useTranslation } from "react-i18next";
 
 function IncomeOverview({ transactions, onAddIncome }) {
+    const { t } = useTranslation();
     const CartData = useMemo(
         () => prepareIncomeBarChartData(transactions),
         [transactions],
@@ -13,15 +15,15 @@ function IncomeOverview({ transactions, onAddIncome }) {
         <div className="card">
             <div className="flex items-center justify-between">
                 <div className="">
-                    <h5 className="text-lg">Income Overview</h5>
+                    <h5 className="text-lg">{t('incomeOverviewTitle')}</h5>
                     <p className="text-xs text-gray-400 mt-0.5">
-                        track your earnings over time and analyze your income.
+                        {t('incomeOverviewDesc')}
                     </p>
                 </div>
 
                 <button className="add-btn" onClick={onAddIncome}>
                     <LuPlus className="text-lg" />
-                    Add Income
+                    {t('addIncomeBtn')}
                 </button>
             </div>
             <div className="mt-10">
