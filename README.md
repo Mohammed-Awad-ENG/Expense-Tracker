@@ -46,9 +46,10 @@ This application natively supports multiple languages with full dynamic layout a
 - **On-the-fly Translation**: Translates all components, menus, and user interactions without requiring a page reload.
 - **Graceful Fallbacks**: Defaults to English if an unsupported regional or external language is detected.
 
-## 🚀 Getting Started
+## 🚀 Quick Access
 
-1. Clone the repository
-2. Run `npm install` inside the frontend directory
-3. Run `npm run dev` to start the development server
-4. Open the link provided in the terminal to view the app in your browser!
+<div align="center">
+  <a href="https://expense-tracker-lake-one-64.vercel.app">
+    <img src="https://img.shields.io/badge/Get%20Started-875cf5?style=for-the-badge" alt="Get Started" />
+  </a>
+</div>
