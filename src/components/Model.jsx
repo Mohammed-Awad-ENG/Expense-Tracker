@@ -1,8 +1,5 @@
-import { useTranslation } from "react-i18next";
-
 function Model({ children, isOpen, onClose, title }) {
-    const { t } = useTranslation();
-    if (!isOpen) return null;
+        if (!isOpen) return null;
     return (
         <div className="fixed top-0 start-0 z-111 flex justify-center items-center w-full h-[calc(100%-1rem)] max-h-full overflow-y-auto overflow-x-hidden bg-black/20 bg-opacity-50">
             <div className="relative p-4 w-full max-w-2xl max-h-full">

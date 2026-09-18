@@ -74,5 +74,8 @@
   "expanses": "Expanses",
   "last30DaysExpenses": "Last 30 Days Expenses",
   "last120DaysIncome": "Last 120 Days Income",
-  "income": "Income"
+  "income": "Income",
+  "dashboard": "Dashboard",
+  "expenses": "Expenses",
+  "logout": "Logout"
 }

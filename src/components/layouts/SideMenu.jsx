@@ -53,7 +53,7 @@ function SideMenu({ activeMenu }) {
                     onClick={() => handleClick(item.link)}
                 >
                     <item.icon className="text-xl" />
-                    <span>{item.name}</span>
+                    <span>{t(item.name.toLowerCase())}</span>
                 </button>
             ))}
         </div>

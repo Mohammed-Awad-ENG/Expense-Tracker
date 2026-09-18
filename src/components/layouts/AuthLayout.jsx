@@ -1,15 +1,19 @@
 import { LuTrendingUpDown } from "react-icons/lu";
-import { useTranslation } from "react-i18next";
 import Card_2 from "../../assets/images/Card_2.png";
+import { useTranslation } from "react-i18next";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 function AuthLayout({ children }) {
     const { t } = useTranslation();
-    return (
+        return (
         <div className="flex">
             <div className="w-screen h-screen md:w-[60vw] px-12 pt-8 pb-12">
-                <h2 className="text-lg font-medium text-black">
-                    {t('expenseTracker')}
-                </h2>
+                <div className="flex justify-between items-center mb-8">
+                    <h2 className="text-lg font-medium text-black">
+                        {t('expenseTracker')}
+                    </h2>
+                    <LanguageSwitcher />
+                </div>
                 {children}
             </div>
             <div className="hidden md:block w-[40vw] h-screen bg-violet-50 bg-auth-bg-img bg-cover bg-center overflow-hidden p-8 relative">
@@ -37,8 +41,7 @@ function AuthLayout({ children }) {
 export default AuthLayout;
 
 function StatsInfoCard({icon , label, value, color}) {
-    const { t } = useTranslation();
-    return <div className=" flex gap-6 bg-white p-4 rounded-xl shadow-md shadow-purple-400/10 border border-gray-200/50 z-10 ">
+        return <div className=" flex gap-6 bg-white p-4 rounded-xl shadow-md shadow-purple-400/10 border border-gray-200/50 z-10 ">
         <div className={`w-12 h-12 flex items-center justify-center text-[26px] text-white ${color} rounded-full `} >
             {icon}
         </div>

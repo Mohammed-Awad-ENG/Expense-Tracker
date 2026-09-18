@@ -74,5 +74,8 @@
   "expanses": "النفقات",
   "last30DaysExpenses": "نفقات آخر 30 يوماً",
   "last120DaysIncome": "دخل آخر 120 يوماً",
-  "income": "الدخل"
+  "income": "الدخل",
+  "dashboard": "لوحة القيادة",
+  "expenses": "النفقات",
+  "logout": "تسجيل الخروج"
 }
