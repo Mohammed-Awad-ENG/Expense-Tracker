@@ -1,23 +1,54 @@
-# React + Vite
+# Expense Tracker 📊
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Expense Tracker is a modern, responsive web application designed to help users efficiently manage their personal finances. Users can track their daily income and expenses, view insightful charts mapping their financial habits over time, and manage their budget with a clean, user-friendly interface.
 
-Currently, two official plugins are available:
+## 🛠️ Tech Stack & Tools
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+<div align="center">
 
-## React Compiler
+#### 💻 Frontend
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
+<img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+<img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
 
-## Expanding the ESLint configuration
+#### ⚙️ Backend & API
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+<img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
+<img src="https://img.shields.io/badge/Express-000000?style=for-the-badge&logo=express&logoColor=white" />
 
-## Multi-Language Support
+#### 🗄️ Database
 
-This application supports multiple languages, specifically **English** (LTR) and **Arabic** (RTL).
-- Automatically detects the user's browser language on first load.
-- Seamlessly flips the UI layout (Right-To-Left) and translates texts on the fly.
-- Defaults to English if an unsupported language is detected.
+<img src="https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white" />
+
+#### 🔧 Tools & OS
+
+<img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
+<img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black" />
+
+</div>
+
+---
+
+## 🌍 Language Support
+
+This application natively supports multiple languages with full dynamic layout adjustments:
+
+* **English (LTR)**
+* **Arabic (RTL)**
+
+### Localization Features:
+- **Auto-Detection**: The app automatically detects the user's browser language on their first visit.
+- **Dynamic Directionality**: Seamlessly flips the entire UI layout (Right-To-Left for Arabic and Left-To-Right for English).
+- **On-the-fly Translation**: Translates all components, menus, and user interactions without requiring a page reload.
+- **Graceful Fallbacks**: Defaults to English if an unsupported regional or external language is detected.
+
+## 🚀 Getting Started
+
+1. Clone the repository
+2. Run `npm install` inside the frontend directory
+3. Run `npm run dev` to start the development server
+4. Open the link provided in the terminal to view the app in your browser!
