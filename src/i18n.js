@@ -20,6 +20,9 @@ i18n
   .init({
     resources,
     fallbackLng: 'en',
+    supportedLngs: ['en', 'ar'], // restrict to Arabic and English
+    nonExplicitSupportedLngs: true, // fallback from 'ar-EG' to 'ar'
+    load: 'languageOnly', // load 'en' instead of 'en-US'
     interpolation: {
       escapeValue: false // react already safes from xss
     }
